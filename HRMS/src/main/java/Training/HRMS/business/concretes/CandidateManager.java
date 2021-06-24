@@ -30,7 +30,6 @@ public class CandidateManager implements CandidateService {
 		if (!this.validationService.candidateValidation(candidate)) {
 			return new ErrorResult("Lütfen tüm alanları doldurunuz.");
 		}
-		
 		if (!this.validationService.checkIfEmailCorrect(candidate.getEmail())) {
 			return new ErrorResult("Lütfen mailinizi kontrol ediniz.");
 		}
