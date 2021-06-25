@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Training.HRMS.business.abstracts.CandidateService;
 import Training.HRMS.core.utilities.results.DataResult;
 import Training.HRMS.core.utilities.results.Result;
+import Training.HRMS.core.utilities.results.SuccessDataResult;
 import Training.HRMS.entities.concretes.Candidate;
 
 @RestController
@@ -33,6 +34,11 @@ public class CandidatesController {
 	@GetMapping("/list")
 	private DataResult<List<Candidate>> list() {
 		return this.candidateService.listAll();
+	}
+
+	@GetMapping("/listById")
+	private DataResult<Candidate> listById(int id) {
+		return this.candidateService.listById(id);
 	}
 
 }

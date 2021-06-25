@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class CvWithSkillsAndLanguagesDto {
 
 	private int id;
+	private String firsName;
+	private String lastName;
 	private String school;
 	private String name;
 	private int level;

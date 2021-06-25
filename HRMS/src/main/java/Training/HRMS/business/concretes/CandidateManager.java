@@ -13,6 +13,7 @@ import Training.HRMS.core.utilities.results.SuccessDataResult;
 import Training.HRMS.core.utilities.results.SuccessResult;
 import Training.HRMS.dataAccess.abstracts.CandidateDao;
 import Training.HRMS.entities.concretes.Candidate;
+import Training.HRMS.entities.concretes.Cv;
 
 @Service
 public class CandidateManager implements CandidateService {
@@ -55,8 +56,12 @@ public class CandidateManager implements CandidateService {
 
 	@Override
 	public DataResult<List<Candidate>> listAll() {
-
 		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findAll(), "Başarıyla Listelendi");
+	}
+
+	@Override
+	public DataResult<Candidate> listById(int id) {
+		return new SuccessDataResult(this.candidateDao.findById(id), "Veriler geldi");
 	}
 
 }

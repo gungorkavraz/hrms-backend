@@ -11,6 +11,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,9 +40,10 @@ public class Candidate extends User {
 	@Column(name = "date_of_birth")
 	private String dateOfBirth;
 
+	//@JsonIgnore()
 	@OneToMany(targetEntity = Cv.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "candidate_id", referencedColumnName = "user_id")
-	private List<Skill> skills;
+	private List<Cv> cvs;
 
 	@Transient
 	private String passwordVerification;
