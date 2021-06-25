@@ -51,13 +51,17 @@ public class Cv {
 	@Column(name = "cover_letter")
 	private String coverLetter;
 
-	@JsonIgnore()
+	@ManyToOne()
+	@JoinColumn(name = "candidate_id")
+	private Candidate candidate;
+
+	// @JsonIgnore()
 	// @OneToMany(mappedBy = "cv", fetch = FetchType.LAZY)
 	@OneToMany(targetEntity = Skill.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "cv_id", referencedColumnName = "id")
 	private List<Skill> skills;
 
-	@JsonIgnore()
+	// @JsonIgnore()
 	// @OneToMany(mappedBy = "cv", fetch = FetchType.LAZY)
 	@OneToMany(targetEntity = Language.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "cv_id", referencedColumnName = "id")

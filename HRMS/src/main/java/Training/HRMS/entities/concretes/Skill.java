@@ -32,8 +32,8 @@ public class Skill {
 
 	@Column(name = "level")
 	private int level;
-	
-	@JsonIgnore()
+
+	// @JsonIgnore()
 	@ManyToOne()
 	@JoinColumn(name = "cv_id")
 	private Cv cv;

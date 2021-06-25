@@ -37,6 +37,10 @@ public class Candidate extends User {
 	@Column(name = "date_of_birth")
 	private String dateOfBirth;
 
+	@OneToMany(targetEntity = Cv.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "candidate_id", referencedColumnName = "user_id")
+	private List<Skill> skills;
+
 	@Transient
 	private String passwordVerification;
 }
