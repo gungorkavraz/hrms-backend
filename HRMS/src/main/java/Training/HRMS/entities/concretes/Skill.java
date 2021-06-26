@@ -33,6 +33,10 @@ public class Skill {
 	@Column(name = "level")
 	private int level;
 
+	/// Web üzerinden listeleme yapılırken loopa düşmesin diye 
+	/// skill(Kullanılan class hangisi olduğu farketmez) listesi içindeki cv kısmını @JsonIgnore() ile ignoreluyoruz
+	/// Eğer bunu yapmazsak cv listelerken cv üzerinden skill(Kullanılan class hangi class olduğu farketmez) classını çağırıyor
+	/// Skill class ı tekrar buraya geldiğinde cv yi çağırıyor ve böyle bir	 kısır-döngü oluyor.
 	@JsonIgnore()
 	@ManyToOne()
 	@JoinColumn(name = "cv_id")
