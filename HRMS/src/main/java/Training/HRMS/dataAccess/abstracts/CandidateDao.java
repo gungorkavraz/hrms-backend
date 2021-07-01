@@ -6,4 +6,6 @@ import Training.HRMS.entities.concretes.Candidate;
 
 public interface CandidateDao extends JpaRepository<Candidate, Integer> {
 	Candidate findByNationalId(String nationalId);
+	
+	
 }

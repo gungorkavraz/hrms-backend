@@ -50,7 +50,7 @@ public class CandidateManager implements CandidateService {
 		if (!this.validationService.sendEmail(candidate.getEmail())) {
 			return new ErrorResult("Doğrulama kodu gönderilemedi");
 		}
-		this.candidateDao.save(candidate);
+		this.candidateDao.save(candidate);		
 		return new SuccessResult("Kaydınız başarıyla gerçekleşti");
 	}
 
