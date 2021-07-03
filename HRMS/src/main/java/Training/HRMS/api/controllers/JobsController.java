@@ -3,6 +3,7 @@ package Training.HRMS.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import Training.HRMS.entities.concretes.Job;
 
 @RestController
 @RequestMapping("/api/jobTitles")
+@CrossOrigin
 public class JobsController {
 
 	private JobService jobService;
@@ -26,12 +28,12 @@ public class JobsController {
 		this.jobService = jobService;
 	}
 
-	@GetMapping("/listalljobtitles")
+	@GetMapping("/list")
 	public DataResult<List<Job>> getAllJobTitles() {
 		return this.jobService.getAllJobTitles();
 	}
 
-	@PostMapping("/addjobtitle")
+	@PostMapping("/add")
 	public Result addJobTitle(@RequestBody Job job) {
 		return this.jobService.addJobTitle(job);
 	}
